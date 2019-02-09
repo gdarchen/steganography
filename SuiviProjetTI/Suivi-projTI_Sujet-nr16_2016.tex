@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+
+%PRéAMBULE
+\usepackage[utf8]{inputenc}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[sort&compress,numbers]{natbib}
+%\usepackage{multibib}
+\usepackage[french]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{fancybox}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{adjustbox}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage{mathrsfs}
+\usepackage[a4paper]{geometry}
+\usepackage{subfig}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage[bottom]{footmisc}
+\usepackage{default}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+
+%TITRE
+\geometry{hscale=0.8,vscale=0.8,centering}
+\title{Théorie de l'information\\
+	Suivi de projet\\
+	Stéganographie dans les images}
+\author{Gautier Darchen \\ Alexandre Huat \\ Romain Judic}
+\date{\today}
+
+\begin{document}
+\maketitle
+\noindent\rule{\textwidth}{1.3pt}
+
+\section{Avancement du projet}
+
+\subsection{Définition de la stéganographie}
+La stéganographie permet de dissimuler un message (dit secondaire) dans un autre (dit primaire) tout en laissant le message primaire lisible de tous. Le message secondaire, lui, ne devra être lisible que par une personne possédant une information spéciale comme une clé ou une méthode d'extraction du message secondaire.\\
+
+Il existe la stéganographie textuelle et la stéganographie dans les images. La stéganographie textuelle est très facile à déceler car elle n'offre pas vraiment d'autre choix que générer un texte incompréhensible, dont on comprend facilement qu'il cache quelque chose. La stéganographie dans les images est beaucoup plus efficace et il existe de très nombreuses méthodes pour cacher, extraire ou déceler un message dans une image\cite{VariousStego}.
+
+\subsection{Exemples de méthodes de stéganographie}
+Il existe plusieurs méthodes de stéganographie dans les images, nous en avons abordé trois :
+\begin{itemize}
+\item la stéganographie par substitution ;
+\item la stéganographie par étalement de spectre ;
+\item la stéganographie dans le domaine transformé.
+\end{itemize}
+
+\subsubsection{Stéganographie par substitution de LSB \emph{(LSB Replacement)}\cite{CoursUM2,Zath,PrincipMax}} % Got
+\input{steg_sub_LSB}
+
+\subsubsection{Stéganographie par étalement de spectre \emph{(SSIS : Spread Spectrum Image Steganography)}\cite{Patch,ARL-TR-1698}}
+\input{steg_spread_spectrum}
+
+%%% stego dans le domaine transformé
+\input{steg_transfo_domain}
+
+\section{Répartition des tâches}
+\begin{description}
+\item[Gautier :] stéganographie par substitution de LSB (voir code Matlab).
+\item[Romain :] stéganographie par étalement de spectre (SSIS).
+\item[Alexandre :] stéganographie dans le domaine transformé.
+\end{description}
+
+\section{Suite envisagée du projet}
+\begin{itemize}
+	\item S'intéresser aux techniques de détection de message stéganographiés et de comparaison de méthodes de stéganographie.
+	\item Coder des exemples de stéganographie.
+\end{itemize}
+
+\bibliography{biblio}
+\bibliographystyle{ieeetr}
+
+\end{document}

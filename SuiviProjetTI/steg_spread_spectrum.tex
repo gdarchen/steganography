@@ -1,0 +1,47 @@
+\paragraph{Définition}~\\\indent
+La technique d'étalement de spectre consiste à dissimuler le message dans un bruit de même taille que l'image \emph{cover} et à l'additionner à cette dernière.
+La modulation du message par le bruit permet d'étaler son spectre, c'est-à-dire de le rendre moins facile à détecter car ne présentant plus de motifs distincts.
+On va utiliser un bruit de très faible puissance par rapport à celle de l'image. De cette manière, en additionnant ces deux derniers, l'image ne sera pas altérée visuellement.
+
+\paragraph{Insertion}
+\begin{itemize}
+\item
+On dispose du message $m$ et de la \emph{cover} $x$ de taille $n$
+\item
+On génère, grâce à une clé secrète, un bruit de taille $n$ et de faible puissance par rapport à celle de $x$ (la clé sera transmise au destinataire de l'image tatouée)
+\item
+On module le message $m$ par le bruit puis on l'étend spatialement (en le répliquant par exemple) $\rightarrow$ on obtient un signal $m_{b}$ de taille $n$
+\item
+On additionne pour obtenir $w$ le signal à envoyer : $w = x + m_{b}$
+\end{itemize}
+
+\paragraph{Extraction}~\\\indent
+Pour récupérer le message $m$, le destinataire doit posséder la clé de génération du bruit. On doit disposer de techniques de restauration d'images pour continuer.
+\begin{itemize}
+\item
+À partir de $w$, le décodeur produit une estimation $\hat{x}$ de l'image initiale
+\item
+$(w-\hat{x})$ correspond à la différence (estimée) entre l'image initiale et le signal reçu, c'est-à-dire à une estimation $\hat{m_{b}}$ du message bruité
+\item
+Grâce à la connaissance de la clé, on peut générer le bruit $b$ et donc démoduler une estimation du message $\hat{m}$
+\end{itemize}
+
+\paragraph{Exemple simple}~\\\indent
+Pour illustrer la partie sur la modulation du message, soit $m$ un message bilatéral ($m_{i} \in \{-1,+1\}$) et $b$ un bruit gaussien $b$ généré grâce à une clé $k$ (par exemple $k = \sigma$).
+~\\
+\underline{Phase d'insertion :} on assigne simplement au bruit le signe du message à dissimuler.$$ w = m \times b $$
+~\\
+\underline{Phase d'extraction :} Après avoir identifié la partie correspondant au bruit sur l'image reçue, un simple examen des signes de $m_{b}$ permet de retrouver le message.$$ \hat{m} = signe(m_{b}) $$
+
+
+
+\paragraph{Critique de cette méthode}
+\begin{description}
+\item[Avantages] Le tatouage est complètement invisible et difficilement décelable par analyse informatique.
+\item[Inconvénients] L'extraction du message dissimulé nécessite la connaissance de techniques d'étalement spatial (pour donner au message la même taille que l'image) et de restauration d'image relativement complexes à mettre en \oe{}uvre.
+\end{description}
+
+
+
+% http://www.lia.deis.unibo.it/Courses/RetiDiCalcolatori/Progetti98/Fortini/patchwork.html
+% http://www.dtic.mil/dtic/tr/fulltext/u2/a349102.pdf

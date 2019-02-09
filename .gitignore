@@ -1,0 +1,12 @@
+*.aux
+*.tex.aux
+*.bbl
+*.blg
+*.log
+*.synctex.gz
+*.nav
+*.snm
+*.toc
+*.out
+.DS_Store
+**/.DS_Store

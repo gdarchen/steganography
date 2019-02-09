@@ -1,0 +1,23 @@
+Site pour télécharger algos :
+http://dde.binghamton.edu/download/stego_algorithms/
+
+PAPER 1 :
+
+- grandes BD d'app utiles pour contourner prb cover-source mismatch
+- classifieurs simples meilleurs + robuste quand cover-suorce mismatch
+- - d'images dans la BD => moins de mémoire nécessaire, BD plus facile à déployer, algo plus complexes
+
+Méthode Average Perceptron
+- classifieur SVG, cover=1, stego=-1
+- chq image a un poids w, la somme des poids wsum = wsum+w en cas d'erreur du classif
+
+Méthode FLD ?
+
+Ilots :
+- servent à homogénéiser, pour les grandes BD avec sources hétérogènes
+1. prétraitement clustering K-ppv
+2. apprentissage pour le choix du classifieur par image
+3. test
+
+EFLDFS très puissant : 93% réussite, 150 000 images
+vs EAP/EFLDS : 83% réussite, 3 600 000 images
